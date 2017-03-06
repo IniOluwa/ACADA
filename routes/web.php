@@ -11,14 +11,26 @@
 |
 */
 
+// Welcome
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
+// landing page
 Route::get('/', function () {
   return view('landing');
 });
 
+// Authentication
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+// Facebook Authentication
+Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
+
+// Home
+Route::get('/home', 'HomeController@index',  array('as' => 'home', 'uses'));
+
+// Route::get('/home', array('as' => 'home', 'uses' => function(){
+//   return view('home');
+// }));
