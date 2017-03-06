@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    protected $redirectPath = '/home';
+    protected $redirectPath = 'home';
 
     /**
      * Redirect the user to the Facebook authentication page.
@@ -41,7 +41,7 @@ class AuthController extends Controller
 
         Auth::login($authUser, true);
 
-        return redirect()->route('/home');
+        return redirect()->route('home');
     }
 
     /**
@@ -101,7 +101,7 @@ class AuthController extends Controller
 
       Auth::login($authUser, true);
 
-      return redirect()->route('/home');
+      return redirect()->route('home');
     }
 
     /**
