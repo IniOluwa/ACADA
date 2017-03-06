@@ -28,9 +28,14 @@ Auth::routes();
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 
+// Google Authentication
+// $s = 'social.';
+// Route::get('/social/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\AuthController@redirectToGoogleProvider']);
+// Route::get('/social/handle/{provider}',     ['as' => $s . 'handle',     'uses' => 'Auth\AuthController@handleGoogleProviderCallback']);
+
+Route::get('/auth/google', 'Auth\AuthController@redirectToGoogleProvider');
+Route::get('/auth/google/redirect', 'Auth\AuthController@handleGoogleProviderCallback');
+
+
 // Home
 Route::get('/home', 'HomeController@index',  array('as' => 'home', 'uses'));
-
-// Route::get('/home', array('as' => 'home', 'uses' => function(){
-//   return view('home');
-// }));

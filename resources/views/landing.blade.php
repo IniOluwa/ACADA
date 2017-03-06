@@ -54,7 +54,6 @@
             margin-bottom: 30px;
         }
     </style>
-</head>
   </head>
   <body>
     <header>
@@ -65,21 +64,24 @@
                       <a href="{{ url('/home') }}">Home</a>
                   @else
                       <a href="{{ url('/login') }}">Login</a>
-                      <a href="auth/facebook" class="btn btn-info" role="button">Login with Facebook<a/>
+
+                      <a href="auth/facebook" class="btn btn-info" role="button">Facebook?<a/>
+
+                      <a href="auth/google" class="btn btn-lg waves-effect waves-light btn-block google">Google?</a>
+
                       <a href="{{ url('/register') }}">Register</a>
                   @endif
               </div>
           @endif
-
-          <div class="content">
-              <div class="title m-b-md">
-                  ACADA welcomes You
-              </div>
-
-          </div>
       </div>
     </header>
-    <section></section>
+    <section>
+      <div class="content">
+          <div class="title m-b-md">
+              ACADA welcomes You
+          </div>
+      </div>
+    </section>
     <footer></footer>
   </body>
 </html>
