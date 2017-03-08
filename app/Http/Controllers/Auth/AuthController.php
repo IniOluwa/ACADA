@@ -67,22 +67,6 @@ class AuthController extends Controller
         ]);
     }
 
-    // public function getSocialRedirect( $provider )
-    // {
-    //
-    //     $providerKey = Config::get('services.' . $provider);
-    //
-    //     if (empty($providerKey)) {
-    //
-    //         return view('pages.status')
-    //             ->with('error','No such provider');
-    //
-    //     }
-    //
-    //     return Socialite::driver( $provider )->redirect();
-    //
-    // }
-
     public function redirectToGoogleProvider()
     {
         return Socialite::driver('google')->redirect();
