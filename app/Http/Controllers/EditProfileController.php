@@ -39,18 +39,16 @@ class EditProfileController extends Controller
           $avatarType = $avatar->getMimeType();
           $avatarName = $avatar->getClientOriginalName();
           $avatarExtension = $avatar->guessExtension();
-          // $avatarNewPath = $avatar->store('images/avatars');
           $avatarNewPath = $avatar->move('images/avatars', $avatarName);
-          // print_r("{$avatarPath} + {$avatarExtension} + {$avatarType} + {$avatarName} + {$avatarNewPath}");
         }
 
         $newPassword = bcrypt($newPassword);
         $id = $request->input('user_id');
         $update = DB::update("UPDATE users SET name='{$newName}', email='{$newEmail}', password='{$newPassword}', avatar='{$avatarNewPath}' WHERE id={$id}");
-        Session::flash('post-flash', ' 1 new post added !');
+        Session::flash('profile-flash', ' User Profile Updated !');
         return view('home');
       }
 
-      // return back();
+      return back();
     }
 }
