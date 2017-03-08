@@ -39,3 +39,5 @@ Route::get('/home', 'HomeController@index',  array('as' => 'home', 'uses'))->nam
 Route::get('/editProfile', function() {
   return view('editProfile', array('as' => 'editProfile', 'uses'));
 })->name('editProfile');
+
+Route::post('/editProfile', 'EditProfileController@updateProfile')->name('updateProfile');
