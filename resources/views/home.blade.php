@@ -152,19 +152,22 @@
 
                       <!-- Video Links -->
                       @foreach($videos as $video)
+                        <div class="" width="640" height="360">
                           <video id="" width="640" height="360" src="{{$video->link}}" controls="controls"></video>
                           <blockquote>
-                            <small>Video category: {{$video->category}}</small>
-                            <small>Link by: {{$video->link_by}}</small>
+                            <small>Video category: <b>{{$video->category}}</b></small>
+                            <small>Link by: <b>{{$video->link_by}}</b></small>
                           </blockquote>
+                          <a href="{{ $video->link }}">Play Video</a>
+                        </div>
                       @endforeach
 
                       <!-- Youtube Embeds -->
                       @foreach($embeds as $embed)
                             <div class="" width="640" height="360">
-                                  <?php echo "{$embed->youtubeEmbedCode}"; ?>
+                                  <iframe width="640" height="360" src="{{$embed->youtubeEmbedCode}}" frameborder="0" allowfullscreen></iframe>
                                   <blockquote>
-                                    <small>Video Embedding by: {{ $embed->youtubeEmbedCodeBy }}</small>
+                                    <small>Video Embedding by: <b>{{ $embed->youtubeEmbedCodeBy }}</b></small>
                                   </blockquote>
                             </div>
                       @endforeach
