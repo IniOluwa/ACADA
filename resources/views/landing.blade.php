@@ -73,14 +73,22 @@
                   @endif
               </div>
           @endif
+          <div class="jumbotron">
+            <blockquote>
+              <h4>ACADA</h4>
+              <small>A video sharing platform</small>
+            </blockquote>
+          </div>
       </div>
+
     </header>
     <section>
-      <div class="content">
+
+      <!-- <div class="content">
           <div class="title m-b-md">
               ACADA welcomes You
           </div>
-      </div>
+      </div> -->
     </section>
     <footer></footer>
   </body>
