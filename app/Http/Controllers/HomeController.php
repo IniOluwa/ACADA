@@ -3,6 +3,9 @@
 namespace ACADA\Http\Controllers;
 
 use Illuminate\Http\Request;
+use ACADA\User;
+use ACADA\Video;
+use ACADA\YoutubeEmbed;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $videos = Video::all();
+        $users = User::orderBy('id', 'desc')->with('videos')->get();
+        $embeds = YoutubeEmbed::all();
+        return view('home', compact('users', 'videos', 'embeds'));
     }
 }
