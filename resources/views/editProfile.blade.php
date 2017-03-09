@@ -9,6 +9,9 @@
                 <div class="panel-body">
                   <div class="content">
                     <div class="col-sm-10">
+                      @if(Session::has('profile-flash'))
+                        <span> {{ Session::get('profile-flash') }} </span>
+                      @endif
                         <form class="form-horizontal" action="{{ route('updateProfile') }}" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
