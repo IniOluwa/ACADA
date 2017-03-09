@@ -11,15 +11,38 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/mediaelement/2.13.2/css/mediaelementplayer.min.css">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript", src="http://cdnjs.cloudflare.com/ajax/libs/mediaelement/2.13.2/js/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript", src="https://www.youtube.com/player_api"></script>
+
+    </script>
+    <script>
+      jQuery(document).ready(function ($) {
+        player = new MediaElementPlayer('#video-player', {
+            features: ['playpause', 'fullscreen'],
+            success: function (mediaElement, domObject) {
+                mediaElement.load();
+                mediaElement.play();
+            }
+        });
+      });
+
+      jQuery(document).ready(function($) {
+          $('#youtube1').mediaelementplayer();
+      });
+    </script>
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-</head>
+
+  </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
@@ -30,7 +53,7 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>``
                         <span class="icon-bar"></span>
                     </button>
 
@@ -85,6 +108,7 @@
     </div>
 
     <!-- Scripts -->
+    </script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
