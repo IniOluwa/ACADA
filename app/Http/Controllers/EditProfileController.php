@@ -7,6 +7,10 @@ use ACADA\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Session;
+use ACADA\User;
+use ACADA\Video;
+use ACADA\YoutubeEmbed;
+
 
 // Edit Profile Controller Class
 class EditProfileController extends Controller
@@ -46,7 +50,11 @@ class EditProfileController extends Controller
         $id = $request->input('user_id');
         $update = DB::update("UPDATE users SET name='{$newName}', email='{$newEmail}', password='{$newPassword}', avatar='{$avatarNewPath}' WHERE id={$id}");
         Session::flash('profile-flash', ' User Profile Updated !');
-        return view('home');
+
+        $users = User::all();
+        $videos = Video::all();
+        $embeds = YoutubeEmbed::all();
+        return view('home', compact('users', 'videos', 'embeds'));
       }
 
       return back();
