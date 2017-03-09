@@ -18,7 +18,6 @@ class EditProfileController extends Controller
     // Function to update user profile
     public function updateProfile(Request $request)
     {
-      // print_r($request->input('newEmail'));
       $newName = $request->input('newName');
       $newEmail = $request->input('newEmail');
       $newPassword = $request->input('newPassword');
