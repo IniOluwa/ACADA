@@ -38,6 +38,14 @@ class VideosController extends Controller
       $newYoutubeEmbedPostedBy = $request->input('user_name');
       $newYoutubeEmbedPostedById = $request->input('user_id');
 
+      $newYoutubeEmbed = $newYoutubeEmbed;
+      // print_r($newYoutubeEmbed);
+      $newYoutubeEmbed = explode(" ", $newYoutubeEmbed);
+      $newYoutubeEmbed = $newYoutubeEmbed{3};
+      $newYoutubeEmbed = substr($newYoutubeEmbed, 5, strlen($newYoutubeEmbed)-6);
+
+      // print_r($newYoutubeEmbed);
+
       $embed = new YoutubeEmbed;
       $embed->user_id = $newYoutubeEmbedPostedById;
       $embed->youtubeEmbedCode = $newYoutubeEmbed;
