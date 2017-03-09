@@ -26,4 +26,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function videos()
+    {
+      return $this->hasMany(Video::class);
+    }
+
+    public function youtubeVideos()
+    {
+      return $this->hasMany(YoutubeEmbed::class);
+    }
+
 }
