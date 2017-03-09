@@ -41,3 +41,17 @@ Route::get('/editProfile', function() {
 })->name('editProfile');
 
 Route::post('/editProfile', 'EditProfileController@updateProfile')->name('updateProfile');
+
+// Videos
+Route::post('/addVideoLink', 'VideosController@addVideoLink')->name('addVideoLink');
+
+// YoutubeEmbed
+Route::post('/addYoutubeEmbed', 'VideosController@addYoutubeEmbed')->name('addYoutubeEmbed');
+
+// Filter categories
+Route::get('/programmingCategory', 'VideosController@programmingCategory')->name('programmingCategory');
+Route::get('/educationCategory', 'VideosController@educationCategory')->name('educationCategory');
+Route::get('/socialCategory', 'VideosController@socialCategory')->name('socialCategory');
+Route::get('/entertainmentCategory', 'VideosController@entertainmentCategory')->name('entertainmentCategory');;
+Route::get('/gamingCategory', 'VideosController@gamingCategory')->name('gamingCategory');
+Route::get('/otherCategories', 'VideosController@otherCategory')->name('otherCategory');
