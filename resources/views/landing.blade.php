@@ -83,12 +83,6 @@
 
     </header>
     <section>
-
-      <!-- <div class="content">
-          <div class="title m-b-md">
-              ACADA welcomes You
-          </div>
-      </div> -->
     </section>
     <footer></footer>
   </body>
