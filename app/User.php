@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'social_id', 'avatar',
     ];
 
     /**
@@ -26,4 +26,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function videos()
+    {
+      return $this->hasMany(Video::class);
+    }
+
+    public function youtubeVideos()
+    {
+      return $this->hasMany(YoutubeEmbed::class);
+    }
+
 }
